@@ -22,7 +22,7 @@ tclient = tw(taccount,tauth)
 
 # authorising sheets api and opening registration form
 sheets_client = authorisation('creds/maya_credentials.json')
-sheet = sheets_client.open('Muslim Techies Registration Form (Responses)')
+sheet = sheets_client.open('[NAME OF GOOGLE WORKSHEET')
 # print(sheet.get_worksheet(0))
 
 # accessing sheet through drive api and return records as json string
@@ -44,8 +44,8 @@ print(f'There are {len(mobile)} members in the MIT community')
 print(datetime.now())
 
 # saves a copy of most up to date records of our members in .csv and .xlsx format
-csv_output = mobile.to_csv('outputs//muslim_techies_records.csv', index=False)
-xlsx_output = mobile.to_excel('outputs//mtr.xlsx', index=False)
+csv_output = mobile.to_csv('outputs//[CSV FILE].csv', index=False)
+xlsx_output = mobile.to_excel('outputs//[EXCEL WORKSHEET].xlsx', index=False)
 
 ##############################################################################################################
 # Streamlit app layout
@@ -76,7 +76,7 @@ def clean_mobile_input(mobile_list):
     return mobile_list
 
 # input 'from' mobile number directly
-from_input = st.text_input('From:', value=+61488853851, max_chars=12)
+from_input = st.text_input('From:', value=[TWILIO_NUMBER], max_chars=12)
 
 # input 'to' mobile number directly
 to_input = st.text_input('To:', max_chars=12)
