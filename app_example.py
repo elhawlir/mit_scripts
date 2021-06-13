@@ -3,7 +3,6 @@ import pandas as pd
 from auto_download import authorisation
 from config import ACCOUNT_SID, AUTH_TOKEN, SCRIPT_ID, TACCOUNT_SID, TAUTH_TOKEN
 import streamlit as st
-import schedule
 from datetime import datetime
 
 # twilio account details
@@ -22,7 +21,7 @@ tclient = tw(taccount,tauth)
 
 # authorising sheets api and opening registration form
 sheets_client = authorisation('creds/maya_credentials.json')
-sheet = sheets_client.open('[NAME OF GOOGLE WORKSHEET')
+sheet = sheets_client.open('[NAME OF GOOGLE WORKSHEET]')
 # print(sheet.get_worksheet(0))
 
 # accessing sheet through drive api and return records as json string
@@ -38,7 +37,7 @@ mobile.dropna(axis=0, how='all', inplace=True)
 print(f'{len(mobile)} entries')
 # print(len(mobile['Email Address'].unique()))
 mobile.drop_duplicates(subset=['Email Address'], keep=False, inplace=True)
-print(f'There are {len(mobile)} members in the MIT community')
+print(f'There are {len(mobile)} members in the [COMMUNITY NAME] community')
 
 # get the current time
 print(datetime.now())
