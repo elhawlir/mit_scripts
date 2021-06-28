@@ -80,52 +80,8 @@ from_input = st.text_input('From:', value=[TWILIO_NUMBER], max_chars=12)
 # input 'to' mobile number directly
 to_input = st.text_input('To:', max_chars=12)
 
-########################################################################################################################
-# the following is for numbers from input csv file
-
-# returns cleaned numbers from input csv file
-def input_csv(input_file, column_name: str):
-    df = pd.read_csv(input_file)
-    # convert mobile numbers to string
-    df[column_name] = df[column_name].map(lambda x: str(x))
-    # standardise numbers so they can receive messages
-    input_numbers = number_clean(df[column_name])
-    input_numbers = clean_mobile_input(input_numbers)
-    
-    return input_numbers
-
-def input_columns(input_file):
-    df = pd.read_csv(input_file)
-    columns = df.columns
-    
-    return columns
-
-# File uploader
-st.set_option('deprecation.showfileUploaderEncoding', False)
-numbers_input = st.file_uploader('Upload your CSV file of mobile numbers', type='csv')
-# st.write(df.head())
-
-# create a list of the columns included in the csv file
-choose_column = list(input_columns(numbers_input))
-print(choose_column)
-
-# Choose column from above list where mobile numbers are stored
-drop_down = st.selectbox('Choose the column where mobile numbers are stored:', choose_column)
-if not drop_down:
-    print(st.error("Please select a column."))
-
-csv_return = input_csv(numbers_input, drop_down)
-st.write(f'{len(csv_return)} mobile numbers')
-    
-
 # text input area
 input_text = st.text_area('Construct Message', value='Start constructing your message', max_chars=155)
-
-first_name = mobile['First Name'].to_list()
-# print(first_name)
-# print(len(first_name))
-
-# test_text = 'howdy'
 
 ####################################################################################################################### 
 # the following is for numbers directly from google sheet
