@@ -186,4 +186,5 @@ send_messages.py
 input_numbers.py
 community_dashboard.py
 reading_texts.py
+auto_download.py
 slack_scripts/
