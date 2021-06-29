@@ -2,12 +2,12 @@ from numpy.lib.arraysetops import isin
 import pandas as pd
 from auto_download import authorisation
 import streamlit as st
-from app import number_clean, clean_mobile_input
+from app_example import number_clean, clean_mobile_input
 import datetime
 from datetime import datetime as dt
 
 # authorising sheets api and opening registration form
-sheets_client = authorisation('creds/maya_credentials.json')
+sheets_client = authorisation('google_credentials.json')
 sheet = sheets_client.open('Muslim Techies Registration Form (Responses)')
 # print(sheet.get_worksheet(0))
 
