@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run community_dashboard_public.py
+web: sh setup.sh && streamlit run app.py
