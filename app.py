@@ -1,13 +1,13 @@
 from numpy.lib.arraysetops import isin
 import pandas as pd
-from auto_download import authorisation
+from auth_public import authorisation
 import streamlit as st
-from app_example import number_clean, clean_mobile_input
 import datetime
 from datetime import datetime as dt
+import os
 
 # authorising sheets api and opening registration form
-sheets_client = authorisation('google-credentials.json')
+sheets_client = authorisation(os.environ['GOOGLE_CREDENTIALS'])
 sheet = sheets_client.open('Muslim Techies Registration Form (Responses)')
 # print(sheet.get_worksheet(0))
 
@@ -20,6 +20,27 @@ records_data = sheet.get_worksheet(0).get_all_records()
 df = pd.DataFrame.from_dict(records_data)
 df.dropna(axis=0, how='all', inplace=True) # remove empty records
 df.drop_duplicates(subset=['Email Address'], keep=False, inplace=True) # remove duplicates
+
+# ensures all numbers are in suitable format to receive messages
+def number_clean(series):
+    empty_list = []
+    for i in series:
+        if (i[:2] == '61') or (i[:3] == '+61'):
+            empty_list.append(i)
+        else:
+            i = '+61' + i
+            empty_list.append(i)
+    return empty_list
+
+def clean_mobile_input(mobile_list):
+    # return cleaned_list
+    for i in range(len(mobile_list)):
+        if mobile_list[i][0] != '+':
+            mobile_list[i] = '+' + mobile_list[i]
+    else:
+        pass
+
+    return mobile_list
 
 # convert mobile numbers to string
 df['phone number'] = df['Mobile Number'].map(lambda x: str(x))
