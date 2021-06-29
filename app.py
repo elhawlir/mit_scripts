@@ -7,7 +7,7 @@ import datetime
 from datetime import datetime as dt
 
 # authorising sheets api and opening registration form
-sheets_client = authorisation('google_credentials.json')
+sheets_client = authorisation('google-credentials.json')
 sheet = sheets_client.open('Muslim Techies Registration Form (Responses)')
 # print(sheet.get_worksheet(0))
 
@@ -35,7 +35,6 @@ recipients = number_clean(students)
 recipients = clean_mobile_input(recipients)
 # print(recipients)
 
-test_numbers = ['+61425777848','+61412345678','+614000000000']
 exc_students = [i for i in total_numbers if i not in recipients] # members that are not students
 
 ###################################################################
