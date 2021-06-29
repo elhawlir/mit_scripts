@@ -1,6 +1,6 @@
 # from twilio.rest import Client as tw
 import pandas as pd
-from auto_download import authorisation
+from auth_public import authorisation
 # from config import ACCOUNT_SID, AUTH_TOKEN, SCRIPT_ID, TACCOUNT_SID, TAUTH_TOKEN
 import streamlit as st
 from datetime import datetime
