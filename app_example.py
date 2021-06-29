@@ -1,23 +1,23 @@
-from twilio.rest import Client as tw
+# from twilio.rest import Client as tw
 import pandas as pd
 from auto_download import authorisation
-from config import ACCOUNT_SID, AUTH_TOKEN, SCRIPT_ID, TACCOUNT_SID, TAUTH_TOKEN
+# from config import ACCOUNT_SID, AUTH_TOKEN, SCRIPT_ID, TACCOUNT_SID, TAUTH_TOKEN
 import streamlit as st
 from datetime import datetime
 
 # twilio account details
 # Live
-account_sid = ACCOUNT_SID
-auth_token = AUTH_TOKEN
+# account_sid = ACCOUNT_SID
+# auth_token = AUTH_TOKEN
 # Test
-taccount = TACCOUNT_SID
-tauth = TAUTH_TOKEN
+# taccount = TACCOUNT_SID
+# tauth = TAUTH_TOKEN
 
 # connecting to twilio client
 # Live
-client = tw(account_sid, auth_token)
+# client = tw(account_sid, auth_token)
 # Test
-tclient = tw(taccount,tauth)
+# tclient = tw(taccount,tauth)
 
 # authorising sheets api and opening registration form
 sheets_client = authorisation('creds/maya_credentials.json')
