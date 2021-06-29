@@ -7,7 +7,7 @@ from datetime import datetime as dt
 import os
 
 # authorising sheets api and opening registration form
-sheets_client = authorisation(os.environ['GOOGLE_CREDENTIALS'])
+sheets_client = authorisation(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
 sheet = sheets_client.open('Muslim Techies Registration Form (Responses)')
 # print(sheet.get_worksheet(0))
 
