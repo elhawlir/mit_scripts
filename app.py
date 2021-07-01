@@ -7,6 +7,7 @@ import streamlit as st
 import datetime
 from datetime import datetime as dt
 import os
+import streamlit_analytics as sta
 
 # authorising sheets api and opening registration form
 sheets_client = authorisation(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
@@ -63,6 +64,8 @@ exc_students = [i for i in total_numbers if i not in recipients] # members that 
 ###################################################################
 # streamlit output of community metrics
 
+sta.start_tracking()
+
 title = st.title('Muslims in Tech Community Breakdown')
 
 # get the current date and time
@@ -111,3 +114,5 @@ def state_search(state, state_df):
     return f'{len(result)} members in {state}'
 
 st.write(state_search(drop_down, search_df))
+
+sta.stop_tracking(save_to_json='outputs/analytics.json')
