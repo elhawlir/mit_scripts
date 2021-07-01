@@ -8,6 +8,7 @@ import streamlit.components.v1 as components
 import datetime
 from datetime import datetime as dt
 import os
+import re
 
 # authorising sheets api and opening registration form
 sheets_client = authorisation(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
@@ -111,8 +112,18 @@ def state_search(state, state_df):
 
     return f'{len(result)} members in {state}'
 
-# stat counter analytics
-components.html(os.environ['STAT_COUNTER'])
-
 # output for state choice
 st.write(state_search(drop_down, search_df))
+
+# stat counter analytics
+# components.html(os.environ['STAT_COUNTER'])
+
+code = os.environ['STAT_COUNTER']
+
+a = os.path.dirname(st.__file__) + '/static/index.html'
+with open(a, 'r') as f:
+    data = f.read()
+    if len(re.findall('G-', data)) == 0:
+        with open(a, 'w') as ff:
+            newdata=re.sub('<head>', '<head>' + code, data)
+            ff.write(newdata)
