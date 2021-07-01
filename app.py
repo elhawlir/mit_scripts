@@ -112,7 +112,7 @@ def state_search(state, state_df):
     return f'{len(result)} members in {state}'
 
 # stat counter analytics
-components.html(os.environ['STAT_COUNTER'], width=200, height=200)
+components.html(os.environ['STAT_COUNTER'])
 
 # output for state choice
 st.write(state_search(drop_down, search_df))
