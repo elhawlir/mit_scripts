@@ -1,6 +1,6 @@
-# mit_scripts
+# Community tools
 
-Building an automated workflow that:
+Automated workflow that:
 <ol>
   <li>Takes submissions from a Google Form</li>
   <li>Saves these to a Google Sheet</li>
@@ -8,10 +8,10 @@ Building an automated workflow that:
   <li>Write out your message and send en masse using Twilio through a simple UI</li>
  </ol>
 
-<!-- Another automated workflow that:
-<ol>
-  <li>Takes submissions from a Google Form</li>
-  <li>Saves these to a Google Sheet</li>
-  <li>Triggers an automatic welcome email to the new subscriber</li>
-  <li>Automatically adds the new subscriber to a designated Mailchimp contact list</li>
-</ol> -->
+## Community Dashboard
+
+Displays:
+<ul>
+  <li>Basic community metrics</li>
+  <li>State breakdown of members</li>
+</ul>
