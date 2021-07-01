@@ -111,22 +111,8 @@ def state_search(state, state_df):
 
     return f'{len(result)} members in {state}'
 
-st.write(state_search(drop_down, search_df))
+# stat counter analytics
+components.html(os.environ.get(['STAT_COUNTER']), width=200, height=200)
 
-tracking_code = """
-<!-- Default Statcounter code for Community Dashboard
-https://st-community-dashboard.herokuapp.com/ -->
-<script type="text/javascript">
-var sc_project=12559589; 
-var sc_invisible=1; 
-var sc_security="bfe5a5cb"; 
-var sc_remove_link=1; 
-</script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript><div class="statcounter"><img class="statcounter"
-src="https://c.statcounter.com/12559589/0/bfe5a5cb/1/" alt="website
-statistics"></div></noscript>
-<!-- End of Statcounter Code -->
-"""
-components.html(tracking_code, width=200, height=200)
+# output for state choice
+st.write(state_search(drop_down, search_df))
